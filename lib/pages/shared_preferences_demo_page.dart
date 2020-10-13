@@ -19,7 +19,7 @@ class SDFDemoPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  width: 300,
+                  width: 200,
                   child: TextField(
                     controller: _controller,
                     decoration: InputDecoration(hintText: '请输入用户名'),

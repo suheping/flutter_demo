@@ -8,11 +8,8 @@ import 'package:orientation/orientation.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:signature/signature.dart';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:path/path.dart' as path;
 import 'package:path/path.dart' show join;
-import 'package:permission_handler/permission_handler.dart';
 
 class SignDemoPage extends StatefulWidget {
   SignDemoPage({Key key}) : super(key: key);
@@ -36,14 +33,6 @@ class _SignDemoPageState extends State<SignDemoPage> {
     super.initState();
     // 进入页面，强制转为横屏
     OrientationPlugin.forceOrientation(DeviceOrientation.landscapeLeft);
-    // var permission =
-    //     PermissionHandler().checkPermissionStatus(PermissionGroup.storage);
-    // print("permission status is " + permission.toString());
-    // PermissionHandler().requestPermissions(<PermissionGroup>[
-    //   PermissionGroup.storage, // 在这里添加需要的权限
-    // ]);
-    // var permission = Permission.storage.status;
-    // Permission.storage.request();
   }
 
   @override

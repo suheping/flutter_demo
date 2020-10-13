@@ -6,7 +6,9 @@
 2. fluro 路由管理
 3. orientation 横竖屏
 4. signature 手写签名
-5. image_gallery_saver 保存图片
+5. image_gallery_saver 保存图片----真机有问题，改为 await File(imagePath).writeAsBytes(data)
 6. fluttertoast 吐司
 7. shared_preferences 持久化
 8. flutter_easyrefresh 上拉加载、下拉刷新
+9. camera 相机（拍照、录制视频）
+10. video_player 视频播放器
