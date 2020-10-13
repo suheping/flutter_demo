@@ -5,6 +5,7 @@ import 'package:flutter_demo/pages/shared_preferences_demo_page.dart';
 import 'package:flutter_demo/pages/easy_refresh_demo.dart';
 import 'package:flutter_demo/pages/camera_page.dart';
 import 'package:flutter_demo/pages/video_player_page.dart';
+import 'package:flutter_demo/pages/drag_demo_page.dart';
 import 'package:fluro/fluro.dart';
 
 Handler homeHandler = Handler(
@@ -44,5 +45,10 @@ Handler cameraHander = Handler(
 Handler videoHander = Handler(
   handlerFunc: (context, parameters) {
     return VideoPlayerPage();
+  },
+);
+Handler dragHander = Handler(
+  handlerFunc: (context, parameters) {
+    return DragDemoPage();
   },
 );

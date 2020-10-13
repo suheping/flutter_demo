@@ -93,18 +93,44 @@ class HomePage extends StatelessWidget {
               child: Text('easyRefresh演示'),
             ),
             Divider(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                RaisedButton(
+                  onPressed: () async {
+                    final cameras = await availableCameras();
+                    print(cameras);
+                    final firstCamera = cameras.first;
+                    Provider.of<CameraProvider>(context, listen: false)
+                        .setCameraDesc(firstCamera);
+                    Provider.of<CameraProvider>(context, listen: false)
+                        .setIsRecording(false);
+                    Application.router.navigateTo(context, '/camera');
+                  },
+                  child: Text('相机'),
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    if (Provider.of<CameraProvider>(context, listen: false)
+                            .videoPath ==
+                        '') {
+                      Fluttertoast.showToast(
+                          msg: '暂无视频，请录制', backgroundColor: Colors.grey);
+                    } else {
+                      Application.router.navigateTo(context, '/video');
+                    }
+                  },
+                  child: Text('播放视频'),
+                )
+              ],
+            ),
+
+            Divider(),
             RaisedButton(
-              onPressed: () async {
-                final cameras = await availableCameras();
-                print(cameras);
-                final firstCamera = cameras.first;
-                Provider.of<CameraProvider>(context, listen: false)
-                    .setCameraDesc(firstCamera);
-                Provider.of<CameraProvider>(context, listen: false)
-                    .setIsRecording(false);
-                Application.router.navigateTo(context, '/camera');
+              onPressed: () {
+                Application.router.navigateTo(context, '/drag');
               },
-              child: Text('拍照'),
+              child: Text('拖拽demo'),
             )
           ],
         ),

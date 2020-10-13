@@ -81,6 +81,8 @@ class TakePictureScreenState extends State<TakePictureScreen> {
                     .isRecording) {
                   // 开始录制
                   try {
+                    Provider.of<CameraProvider>(context, listen: false)
+                        .setVideoPath('');
                     await _initializeControllerFuture;
                     final path = join(
                       (await getExternalStorageDirectory()).path,
@@ -89,6 +91,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
                     await _controller.startVideoRecording(path);
                     Provider.of<CameraProvider>(context, listen: false)
                         .setIsRecording(true);
+                    // 保存视频路径
                     Provider.of<CameraProvider>(context, listen: false)
                         .setVideoPath(path);
                   } catch (e) {

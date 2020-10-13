@@ -8,7 +8,7 @@ class CameraProvider with ChangeNotifier {
   bool _isRecording = false;
   bool get isRecording => _isRecording;
 
-  String _videoPath;
+  String _videoPath = '';
   String get videoPath => _videoPath;
 
   setCameraDesc(CameraDescription cameraDescription) {

@@ -21,6 +21,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
     String path = Provider.of<CameraProvider>(context, listen: false).videoPath;
     print(path);
     _controller = VideoPlayerController.file(File(path));
+    _controller.setLooping(true);
     _initializeVideoPlayerFuture = _controller.initialize();
   }
 

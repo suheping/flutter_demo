@@ -11,6 +11,7 @@ class Routers {
   static String easyRefreshDemoPage = '/refresh';
   static String cameraPage = '/camera';
   static String videoPage = '/video';
+  static String dragPage = '/drag';
 
   static void configureRouters(Router router) {
     router.notFoundHandler = new Handler(
@@ -27,5 +28,6 @@ class Routers {
     router.define(easyRefreshDemoPage, handler: easyRefreshDemoHander);
     router.define(cameraPage, handler: cameraHander);
     router.define(videoPage, handler: videoHander);
+    router.define(dragPage, handler: dragHander);
   }
 }
