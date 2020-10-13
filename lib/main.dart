@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_demo/provider/counter_provider.dart';
 import 'package:flutter_demo/provider/sdf_provider.dart';
 import 'package:flutter_demo/provider/refresh_provider.dart';
+import 'package:flutter_demo/provider/camera_provider.dart';
 import 'package:fluro/fluro.dart';
 
 void main() {
@@ -23,6 +24,9 @@ void main() {
       ),
       ChangeNotifierProvider(
         create: (context) => RefreshProvider(),
+      ),
+      ChangeNotifierProvider(
+        create: (context) => CameraProvider(),
       )
     ],
     child: MyApp(),

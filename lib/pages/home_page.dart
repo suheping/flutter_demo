@@ -1,9 +1,14 @@
+import 'dart:convert' as convert;
+
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/provider/counter_provider.dart';
 import 'package:flutter_demo/provider/file_provider.dart';
 import 'package:flutter_demo/provider/refresh_provider.dart';
 import 'package:flutter_demo/provider/sdf_provider.dart';
+import 'package:flutter_demo/provider/camera_provider.dart';
 import 'package:flutter_demo/routers/application.dart';
+import 'package:flutter_demo/routers/routers.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'dart:io';
@@ -86,6 +91,20 @@ class HomePage extends StatelessWidget {
                 Application.router.navigateTo(context, '/refresh');
               },
               child: Text('easyRefresh演示'),
+            ),
+            Divider(),
+            RaisedButton(
+              onPressed: () async {
+                final cameras = await availableCameras();
+                print(cameras);
+                final firstCamera = cameras.first;
+                Provider.of<CameraProvider>(context, listen: false)
+                    .setCameraDesc(firstCamera);
+                Provider.of<CameraProvider>(context, listen: false)
+                    .setIsRecording(false);
+                Application.router.navigateTo(context, '/camera');
+              },
+              child: Text('拍照'),
             )
           ],
         ),

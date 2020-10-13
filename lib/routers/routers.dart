@@ -1,4 +1,5 @@
 import 'package:fluro/fluro.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_demo/routers/handler.dart';
 
 class Routers {
@@ -8,6 +9,8 @@ class Routers {
   static String signDemoPage = '/sign';
   static String sdfDemoPage = '/sdf';
   static String easyRefreshDemoPage = '/refresh';
+  static String cameraPage = '/camera';
+  static String videoPage = '/video';
 
   static void configureRouters(Router router) {
     router.notFoundHandler = new Handler(
@@ -22,5 +25,7 @@ class Routers {
     router.define(signDemoPage, handler: signDemoHander);
     router.define(sdfDemoPage, handler: sdfDemoHander);
     router.define(easyRefreshDemoPage, handler: easyRefreshDemoHander);
+    router.define(cameraPage, handler: cameraHander);
+    router.define(videoPage, handler: videoHander);
   }
 }

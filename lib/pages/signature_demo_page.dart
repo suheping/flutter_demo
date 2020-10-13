@@ -1,13 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_demo/provider/file_provider.dart';
 import 'package:flutter_demo/routers/application.dart';
 import 'package:orientation/orientation.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:signature/signature.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path/path.dart' as path;
+import 'package:path/path.dart' show join;
+import 'package:permission_handler/permission_handler.dart';
 
 class SignDemoPage extends StatefulWidget {
   SignDemoPage({Key key}) : super(key: key);
@@ -31,6 +36,14 @@ class _SignDemoPageState extends State<SignDemoPage> {
     super.initState();
     // 进入页面，强制转为横屏
     OrientationPlugin.forceOrientation(DeviceOrientation.landscapeLeft);
+    // var permission =
+    //     PermissionHandler().checkPermissionStatus(PermissionGroup.storage);
+    // print("permission status is " + permission.toString());
+    // PermissionHandler().requestPermissions(<PermissionGroup>[
+    //   PermissionGroup.storage, // 在这里添加需要的权限
+    // ]);
+    // var permission = Permission.storage.status;
+    // Permission.storage.request();
   }
 
   @override
@@ -95,36 +108,18 @@ class _SignDemoPageState extends State<SignDemoPage> {
       // 转为bytes
       var data = await _controller.toPngBytes();
 
-      // // 跳转页面展示该图片
-      // Navigator.of(context)
-      //     .push(MaterialPageRoute(builder: (BuildContext context) {
-      //   return Scaffold(
-      //     appBar: AppBar(),
-      //     body: Center(
-      //       child: Container(
-      //         color: Colors.grey,
-      //         child: Image.memory(data),
-      //       ),
-      //     ),
-      //   );
-      // }));
-
-      // 保存图片到本地
-      var result = await ImageGallerySaver.saveImage(data, name: 'sign');
-      // 先把filePath置为空
-      Provider.of<FileProvider>(context, listen: false).setFilePath('');
-      if (result != '') {
-        // 保存成功返回的是uri： file:///storage/emulated/0/flutter_demo/sign.jpg
-        // 需要转为path
-        String fileUri = result;
+      var imagePath = join(
+        (await getTemporaryDirectory()).path,
+        '${DateTime.now()}.png',
+      );
+      try {
+        Provider.of<FileProvider>(context, listen: false).setFilePath('');
+        await File(imagePath).writeAsBytes(data);
         Provider.of<FileProvider>(context, listen: false)
-            .setFilePath(path.fromUri(fileUri));
+            .setFilePath(imagePath);
         Fluttertoast.showToast(msg: '保存成功', backgroundColor: Colors.grey);
-        setState(() {
-          OrientationPlugin.forceOrientation(DeviceOrientation.portraitUp);
-        });
         Application.router.navigateTo(context, '/home', clearStack: true);
-      } else {
+      } catch (e) {
         Fluttertoast.showToast(msg: '保存失败', backgroundColor: Colors.grey);
       }
     }
