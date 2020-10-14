@@ -12,6 +12,7 @@ class Routers {
   static String cameraPage = '/camera';
   static String videoPage = '/video';
   static String dragPage = '/drag';
+  static String chewiePage = '/chewie';
 
   static void configureRouters(Router router) {
     router.notFoundHandler = new Handler(
@@ -29,5 +30,6 @@ class Routers {
     router.define(cameraPage, handler: cameraHander);
     router.define(videoPage, handler: videoHander);
     router.define(dragPage, handler: dragHander);
+    router.define(chewiePage, handler: chewieHander);
   }
 }

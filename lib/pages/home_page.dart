@@ -120,7 +120,24 @@ class HomePage extends StatelessWidget {
                       Application.router.navigateTo(context, '/video');
                     }
                   },
-                  child: Text('播放视频'),
+                  child: Text('播放视频1'),
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    if (Provider.of<CameraProvider>(context, listen: false)
+                            .videoPath ==
+                        '') {
+                      Fluttertoast.showToast(
+                          msg: '暂无视频，请录制', backgroundColor: Colors.grey);
+                    } else {
+                      var file = File(
+                          Provider.of<CameraProvider>(context, listen: false)
+                              .videoPath);
+                      print(file.uri);
+                      Application.router.navigateTo(context, '/chewie');
+                    }
+                  },
+                  child: Text('播放视频2'),
                 )
               ],
             ),

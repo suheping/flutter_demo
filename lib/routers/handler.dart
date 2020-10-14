@@ -1,3 +1,4 @@
+import 'package:flutter_demo/pages/chewie_demo_page.dart';
 import 'package:flutter_demo/pages/home_page.dart';
 import 'package:flutter_demo/pages/provider_demo_page.dart';
 import 'package:flutter_demo/pages/signature_demo_page.dart';
@@ -50,5 +51,10 @@ Handler videoHander = Handler(
 Handler dragHander = Handler(
   handlerFunc: (context, parameters) {
     return DragDemoPage();
+  },
+);
+Handler chewieHander = Handler(
+  handlerFunc: (context, parameters) {
+    return ChewieDemoPage();
   },
 );
