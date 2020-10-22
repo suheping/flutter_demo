@@ -1,9 +1,8 @@
 import 'package:fluro/fluro.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_demo/routers/handler.dart';
 
 class Routers {
-  static Router router;
+  static FluroRouter router;
   static String homePage = '/home';
   static String providerDemoPage = '/provider';
   static String signDemoPage = '/sign';
@@ -13,8 +12,9 @@ class Routers {
   static String videoPage = '/video';
   static String dragPage = '/drag';
   static String chewiePage = '/chewie';
+  static String webPage = '/web';
 
-  static void configureRouters(Router router) {
+  static void configureRouters(FluroRouter router) {
     router.notFoundHandler = new Handler(
       handlerFunc: (context, parameters) {
         print('route was not found!');
@@ -31,5 +31,6 @@ class Routers {
     router.define(videoPage, handler: videoHander);
     router.define(dragPage, handler: dragHander);
     router.define(chewiePage, handler: chewieHander);
+    router.define(webPage, handler: webHander);
   }
 }

@@ -7,6 +7,7 @@ import 'package:flutter_demo/pages/easy_refresh_demo.dart';
 import 'package:flutter_demo/pages/camera_page.dart';
 import 'package:flutter_demo/pages/video_player_page.dart';
 import 'package:flutter_demo/pages/drag_demo_page.dart';
+import 'package:flutter_demo/pages/web_view_page.dart';
 import 'package:fluro/fluro.dart';
 
 Handler homeHandler = Handler(
@@ -56,5 +57,11 @@ Handler dragHander = Handler(
 Handler chewieHander = Handler(
   handlerFunc: (context, parameters) {
     return ChewieDemoPage();
+  },
+);
+
+Handler webHander = Handler(
+  handlerFunc: (context, parameters) {
+    return WebViewPage();
   },
 );

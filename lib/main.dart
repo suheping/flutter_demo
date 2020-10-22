@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/pages/home_page.dart';
 import 'package:flutter_demo/provider/file_provider.dart';
+import 'package:flutter_demo/provider/web_view_provider.dart';
 import 'package:flutter_demo/routers/application.dart';
 import 'package:flutter_demo/routers/routers.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +28,9 @@ void main() {
       ),
       ChangeNotifierProvider(
         create: (context) => CameraProvider(),
+      ),
+      ChangeNotifierProvider(
+        create: (context) => WebViewProvider(),
       )
     ],
     child: MyApp(),
@@ -37,7 +41,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // 路由引入固定写法
-    final router = Router();
+    final router = FluroRouter();
     Routers.configureRouters(router);
     Application.router = router;
 

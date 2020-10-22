@@ -7,6 +7,7 @@ import 'package:flutter_demo/provider/file_provider.dart';
 import 'package:flutter_demo/provider/refresh_provider.dart';
 import 'package:flutter_demo/provider/sdf_provider.dart';
 import 'package:flutter_demo/provider/camera_provider.dart';
+import 'package:flutter_demo/provider/web_view_provider.dart';
 import 'package:flutter_demo/routers/application.dart';
 import 'package:flutter_demo/routers/routers.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -148,7 +149,19 @@ class HomePage extends StatelessWidget {
                 Application.router.navigateTo(context, '/drag');
               },
               child: Text('拖拽demo'),
-            )
+            ),
+            Divider(),
+            RaisedButton(
+              onPressed: () {
+                String _params =
+                    'contract_id=07ed9b35eb2482768465c75a23a2e0aa&user_name=山东服装科技测试有限公司&credit_code=923723771111111114&preview=';
+                Provider.of<WebViewProvider>(context, listen: false)
+                    .setParam(_params);
+                Application.router.navigateTo(context, '/web');
+              },
+              child: Text('内嵌H5'),
+            ),
+            Divider(),
           ],
         ),
       ),
