@@ -12,3 +12,4 @@
 8. flutter_easyrefresh 上拉加载、下拉刷新
 9. camera 相机（拍照、录制视频）
 10. video_player 视频播放器
+11. flutter_webview_plugin 内嵌 html，js 回调

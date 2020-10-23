@@ -41,8 +41,7 @@ dependencies:
   # 视频播放器
   chewie: ^0.9.10
   url_launcher: ^5.7.6
-  webview_flutter: ^1.0.5
-  flutter_fai_webview: ^1.1.2
+  # 内嵌js，js回调
   flutter_webview_plugin: ^0.3.11
 
 dev_dependencies:
