@@ -43,6 +43,7 @@ dependencies:
   url_launcher: ^5.7.6
   # 内嵌js，js回调
   flutter_webview_plugin: ^0.3.11
+  jpush_flutter: 0.6.0
 
 dev_dependencies:
   flutter_test:

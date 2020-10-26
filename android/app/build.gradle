@@ -43,6 +43,16 @@ android {
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        // ndk {
+	      //     //选择要添加的对应 cpu 类型的 .so 库。
+	      //     abiFilters 'armeabi', 'armeabi-v7a', 'x86', 'x86_64', 'mips', 'mips64', 'arm64-v8a',        
+        // }
+        // 极光推送配置
+        manifestPlaceholders = [
+            JPUSH_PKGNAME : applicationId,
+            JPUSH_APPKEY : "ff96737487c82479dc67fbae", //JPush上注册的包名对应的appkey.
+            JPUSH_CHANNEL : "developer-default",
+        ]
     }
 
     buildTypes {
