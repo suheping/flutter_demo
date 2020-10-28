@@ -12,15 +12,17 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <!-- 开启指纹权限 -->
     <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <!-- android:theme="@style/LaunchTheme" -->
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="flutter_demo"
         android:icon="@mipmap/ic_launcher"
+        
         android:networkSecurityConfig="@xml/network_security_config">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
-            android:theme="@style/LaunchTheme"
+            android:theme="@style/Theme.AppCompat"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">

@@ -46,7 +46,8 @@ dependencies:
   # 极光推送
   jpush_flutter: 0.6.0
   # 指纹识别登录
-  local_auth: 0.4.0+1
+  # local_auth: 0.4.0+1
+  local_auth: ^0.6.3+3
 
 dev_dependencies:
   flutter_test:
