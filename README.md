@@ -14,3 +14,4 @@
 10. video_player 视频播放器
 11. flutter_webview_plugin 内嵌 html，js 回调
 12. jpush_flutter 极光推送
+13. local_auth: 0.4.0+1 指纹认证（0.6.3 报错，未解决）

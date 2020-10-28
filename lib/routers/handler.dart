@@ -8,6 +8,7 @@ import 'package:flutter_demo/pages/camera_page.dart';
 import 'package:flutter_demo/pages/video_player_page.dart';
 import 'package:flutter_demo/pages/drag_demo_page.dart';
 import 'package:flutter_demo/pages/web_view_page.dart';
+import 'package:flutter_demo/pages/local_auth_page.dart';
 import 'package:fluro/fluro.dart';
 
 Handler homeHandler = Handler(
@@ -63,5 +64,11 @@ Handler chewieHander = Handler(
 Handler webHander = Handler(
   handlerFunc: (context, parameters) {
     return WebViewPage();
+  },
+);
+
+Handler localAuthHander = Handler(
+  handlerFunc: (context, parameters) {
+    return LocalAuthPage();
   },
 );

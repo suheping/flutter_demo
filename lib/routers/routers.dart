@@ -13,6 +13,7 @@ class Routers {
   static String dragPage = '/drag';
   static String chewiePage = '/chewie';
   static String webPage = '/web';
+  static String localAuthPage = '/localAuth';
 
   static void configureRouters(FluroRouter router) {
     router.notFoundHandler = new Handler(
@@ -32,5 +33,6 @@ class Routers {
     router.define(dragPage, handler: dragHander);
     router.define(chewiePage, handler: chewieHander);
     router.define(webPage, handler: webHander);
+    router.define(localAuthPage, handler: localAuthHander);
   }
 }

@@ -169,7 +169,7 @@ packages:
       name: intl
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.16.1"
+    version: "0.15.8"
   jpush_flutter:
     dependency: "direct main"
     description:
@@ -184,6 +184,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.6.3-nullsafety.1"
+  local_auth:
+    dependency: "direct main"
+    description:
+      name: local_auth
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.4.0+1"
   matcher:
     dependency: transitive
     description:

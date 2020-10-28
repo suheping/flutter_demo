@@ -162,6 +162,13 @@ class HomePage extends StatelessWidget {
               child: Text('内嵌H5'),
             ),
             Divider(),
+            RaisedButton(
+              onPressed: () {
+                Application.router.navigateTo(context, '/localAuth');
+              },
+              child: Text('生物识别'),
+            ),
+            Divider()
           ],
         ),
       ),
