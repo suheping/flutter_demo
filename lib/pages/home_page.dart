@@ -1,5 +1,3 @@
-import 'dart:convert' as convert;
-
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/provider/counter_provider.dart';
@@ -9,7 +7,6 @@ import 'package:flutter_demo/provider/sdf_provider.dart';
 import 'package:flutter_demo/provider/camera_provider.dart';
 import 'package:flutter_demo/provider/web_view_provider.dart';
 import 'package:flutter_demo/routers/application.dart';
-import 'package:flutter_demo/routers/routers.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'dart:io';

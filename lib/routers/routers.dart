@@ -3,6 +3,7 @@ import 'package:flutter_demo/routers/handler.dart';
 
 class Routers {
   static FluroRouter router;
+  static String fingerLoginPage = '/fingerLogin';
   static String homePage = '/home';
   static String providerDemoPage = '/provider';
   static String signDemoPage = '/sign';
@@ -34,5 +35,6 @@ class Routers {
     router.define(chewiePage, handler: chewieHander);
     router.define(webPage, handler: webHander);
     router.define(localAuthPage, handler: localAuthHander);
+    router.define(fingerLoginPage, handler: fingerLoginHander);
   }
 }

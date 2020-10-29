@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:local_auth/auth_strings.dart';
 import 'package:local_auth/local_auth.dart';
+import 'package:flutter_demo/provider/sdf_provider.dart';
+import 'package:provider/provider.dart';
 
 class LocalAuthPage extends StatefulWidget {
   LocalAuthPage({Key key}) : super(key: key);
@@ -60,7 +62,6 @@ class _LocalAuthPageState extends State<LocalAuthPage> {
                     signInTitle: '指纹验证',
                     fingerprintRequiredTitle: '请先录入指纹!',
                   );
-
                   try {
                     bool didAuthenticate =
                         await localAuth.authenticateWithBiometrics(
@@ -75,6 +76,30 @@ class _LocalAuthPageState extends State<LocalAuthPage> {
                 },
                 child: Text('指纹识别'),
               ),
+              Divider(),
+              // 是否开启指纹登录
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text('开启指纹登录'),
+                  Provider.of<SDFProvider>(context).fingerLoginEnable
+                      ? IconButton(
+                          onPressed: () async {
+                            await Provider.of<SDFProvider>(context,
+                                    listen: false)
+                                .setFingerLoginEnable(false);
+                          },
+                          icon: Image.asset('assets/images/switch_on.png'),
+                        )
+                      : IconButton(
+                          onPressed: () async {
+                            await Provider.of<SDFProvider>(context,
+                                    listen: false)
+                                .setFingerLoginEnable(true);
+                          },
+                          icon: Image.asset('assets/images/switch_off.png')),
+                ],
+              )
             ],
           ),
         ));
