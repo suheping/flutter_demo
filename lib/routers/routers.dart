@@ -15,6 +15,9 @@ class Routers {
   static String chewiePage = '/chewie';
   static String webPage = '/web';
   static String localAuthPage = '/localAuth';
+  static String gesturePage = '/gesture';
+  static String setGesturePage = '/setGesture';
+  static String verifyGesturePage = '/verifyGesture';
 
   static void configureRouters(FluroRouter router) {
     router.notFoundHandler = new Handler(
@@ -36,5 +39,8 @@ class Routers {
     router.define(webPage, handler: webHander);
     router.define(localAuthPage, handler: localAuthHander);
     router.define(fingerLoginPage, handler: fingerLoginHander);
+    router.define(gesturePage, handler: gestureHander);
+    router.define(setGesturePage, handler: setGestureHander);
+    router.define(verifyGesturePage, handler: verifyGestureHander);
   }
 }

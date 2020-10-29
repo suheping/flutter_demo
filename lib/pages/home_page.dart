@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
         title: Text('flutter工具集合'),
       ),
       body: Container(
-        child: Column(
+        child: ListView(
           children: [
             RaisedButton(
               onPressed: () {
@@ -163,7 +163,14 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Application.router.navigateTo(context, '/localAuth');
               },
-              child: Text('生物识别'),
+              child: Text('指纹识别'),
+            ),
+            Divider(),
+            RaisedButton(
+              onPressed: () {
+                Application.router.navigateTo(context, '/gesture');
+              },
+              child: Text('手势密码'),
             ),
             Divider()
           ],

@@ -10,6 +10,9 @@ import 'package:flutter_demo/pages/drag_demo_page.dart';
 import 'package:flutter_demo/pages/web_view_page.dart';
 import 'package:flutter_demo/pages/local_auth_page.dart';
 import 'package:flutter_demo/pages/finger_login_page.dart';
+import 'package:flutter_demo/pages/gesture_page.dart';
+import 'package:flutter_demo/pages/set_gesture_page.dart';
+import 'package:flutter_demo/pages/verify_gesture_page.dart';
 import 'package:fluro/fluro.dart';
 
 Handler homeHandler = Handler(
@@ -77,5 +80,23 @@ Handler localAuthHander = Handler(
 Handler fingerLoginHander = Handler(
   handlerFunc: (context, parameters) {
     return FingerLoginPage();
+  },
+);
+
+Handler gestureHander = Handler(
+  handlerFunc: (context, parameters) {
+    return GesturePage();
+  },
+);
+
+Handler setGestureHander = Handler(
+  handlerFunc: (context, parameters) {
+    return SetGesturePage();
+  },
+);
+
+Handler verifyGestureHander = Handler(
+  handlerFunc: (context, parameters) {
+    return VerifyGesturePage();
   },
 );

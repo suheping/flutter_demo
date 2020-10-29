@@ -48,6 +48,8 @@ dependencies:
   # 指纹识别登录
   # local_auth: 0.4.0+1
   local_auth: ^0.6.3+3
+  # 手势密码
+  gesture_recognition: ^1.0.1
 
 dev_dependencies:
   flutter_test:

@@ -163,6 +163,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "7.1.1"
+  gesture_recognition:
+    dependency: "direct main"
+    description:
+      name: gesture_recognition
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
   image:
     dependency: transitive
     description:

@@ -15,3 +15,4 @@
 11. flutter_webview_plugin 内嵌 html，js 回调
 12. jpush_flutter 极光推送
 13. local_auth 指纹认证（0.6.3 支持，gradle 升级为 gradle-6.7-all.zip），指纹认证登录示例
+14. gesture_recognition 手势密码登录
