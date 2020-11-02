@@ -13,6 +13,7 @@ class SDFProvider with ChangeNotifier {
   List<int> get gestureCode => _gestureCode;
   bool get gestureLoginEnable => _gestureLoginEnable;
 
+  // 获取持久化中的name
   getName() async {
     // 获取持久化实例
     SharedPreferences sdf = await SharedPreferences.getInstance();
@@ -20,7 +21,7 @@ class SDFProvider with ChangeNotifier {
     _name = sdf.getString('name') == null ? '您未保存用户名' : sdf.getString('name');
   }
 
-  // 修改持久化中的用户名
+  // 修改持久化中的name
   saveName(String name) async {
     // 获取持久化实例
     SharedPreferences sdf = await SharedPreferences.getInstance();
@@ -32,7 +33,8 @@ class SDFProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<bool> getFingerLoginEnable() async {
+  // 获取持久化中的是否开启指纹登录
+  getFingerLoginEnable() async {
     // 获取持久化实例
     SharedPreferences sdf = await SharedPreferences.getInstance();
     // 取出持久化中的是否开启指纹登录，赋值给_fingerLoginEnable
@@ -40,9 +42,9 @@ class SDFProvider with ChangeNotifier {
             sdf.getBool('fingerLoginEnable') == false
         ? false
         : true;
-    return _fingerLoginEnable;
   }
 
+  // 修改持久化中的是否开启指纹登录
   setFingerLoginEnable(bool b) async {
     // 获取持久化实例
     SharedPreferences sdf = await SharedPreferences.getInstance();
@@ -51,7 +53,8 @@ class SDFProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<bool> getGestureLoginEnable() async {
+  // 获取持久化中的是否开启手势密码登录
+  getGestureLoginEnable() async {
     // 获取持久化实例
     SharedPreferences sdf = await SharedPreferences.getInstance();
     // 取出持久化中的是否开启手势密码登录，赋值给_gestureLoginEnable
@@ -59,9 +62,9 @@ class SDFProvider with ChangeNotifier {
             sdf.getBool('gestureLoginEnable') == false
         ? false
         : true;
-    return _gestureLoginEnable;
   }
 
+  // 设置持久化中的是否开启手势密码登录
   setGestureLoginEnable(bool b) async {
     // 获取持久化实例
     SharedPreferences sdf = await SharedPreferences.getInstance();
@@ -70,6 +73,28 @@ class SDFProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  // 获取持久化中的手势密码
+  getGesturecode() async {
+    // 获取持久化实例
+    SharedPreferences sdf = await SharedPreferences.getInstance();
+    String tmp = sdf.getString('gestureCode');
+    if (tmp == null) {
+      _gestureCode = [];
+    } else {
+      if (tmp.length > 3) {
+        String newtmp = tmp.substring(1, tmp.length - 1);
+        List<String> stringList = newtmp.split(',');
+        _gestureCode = [];
+        for (var item in stringList) {
+          _gestureCode.add(int.parse(item));
+        }
+      } else {
+        _gestureCode = [];
+      }
+    }
+  }
+
+  // 设置持久化中的手势密码
   setGestureCode(List<int> gestureCode) async {
     // 获取持久化实例
     SharedPreferences sdf = await SharedPreferences.getInstance();

@@ -3,7 +3,8 @@ import 'package:flutter_demo/routers/handler.dart';
 
 class Routers {
   static FluroRouter router;
-  static String fingerLoginPage = '/fingerLogin';
+  static String welcomePage = '/welcome';
+  static String fingerLoginPage = '/login';
   static String homePage = '/home';
   static String providerDemoPage = '/provider';
   static String signDemoPage = '/sign';
@@ -18,6 +19,7 @@ class Routers {
   static String gesturePage = '/gesture';
   static String setGesturePage = '/setGesture';
   static String verifyGesturePage = '/verifyGesture';
+  static String dioPage = '/dio';
 
   static void configureRouters(FluroRouter router) {
     router.notFoundHandler = new Handler(
@@ -42,5 +44,7 @@ class Routers {
     router.define(gesturePage, handler: gestureHander);
     router.define(setGesturePage, handler: setGestureHander);
     router.define(verifyGesturePage, handler: verifyGestureHander);
+    router.define(dioPage, handler: dioHander);
+    router.define(welcomePage, handler: welcomeHander);
   }
 }

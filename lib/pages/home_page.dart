@@ -167,10 +167,21 @@ class HomePage extends StatelessWidget {
             ),
             Divider(),
             RaisedButton(
-              onPressed: () {
+              onPressed: () async {
+                await Provider.of<SDFProvider>(context, listen: false)
+                    .getGestureLoginEnable();
+                await Provider.of<SDFProvider>(context, listen: false)
+                    .getGesturecode();
                 Application.router.navigateTo(context, '/gesture');
               },
               child: Text('手势密码'),
+            ),
+            Divider(),
+            RaisedButton(
+              onPressed: () {
+                Application.router.navigateTo(context, '/dio');
+              },
+              child: Text('Dio'),
             ),
             Divider()
           ],

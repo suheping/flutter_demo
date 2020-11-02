@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_demo/pages/finger_login_page.dart';
-import 'package:flutter_demo/pages/home_page.dart';
+import 'package:flutter_demo/pages/login_page.dart';
+import 'package:flutter_demo/pages/welcome_page.dart';
 import 'package:flutter_demo/provider/file_provider.dart';
 import 'package:flutter_demo/provider/web_view_provider.dart';
 import 'package:flutter_demo/routers/application.dart';
@@ -129,7 +129,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(primaryColor: Colors.blue),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Application.router.generator,
-      home: FingerLoginPage(),
+      home: WelcomePage(),
     );
   }
 }

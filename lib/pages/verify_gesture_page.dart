@@ -14,7 +14,7 @@ class VerifyGesturePage extends StatefulWidget {
 
 class _VerifyGesturePageState extends State<VerifyGesturePage> {
   List<int> curResult = [];
-  List<int> correctResult = [0, 1, 2, 5, 8, 7, 6];
+  // List<int> correctResult = [0, 1, 2, 5, 8, 7, 6];
   GlobalKey<GestureState> gestureStateKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,8 @@ class _VerifyGesturePageState extends State<VerifyGesturePage> {
     }
     if (isCorrect) {
       Fluttertoast.showToast(msg: '手势密码验证通过', backgroundColor: Colors.grey);
-      Application.router.pop(context);
+      // Application.router.pop(context);
+      Application.router.navigateTo(context, '/home', replace: true);
     } else {
       Fluttertoast.showToast(
           msg: '手势密码验证失败，请重试！', backgroundColor: Colors.grey);

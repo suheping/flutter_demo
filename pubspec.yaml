@@ -50,6 +50,7 @@ dependencies:
   local_auth: ^0.6.3+3
   # 手势密码
   gesture_recognition: ^1.0.1
+  dio: ^3.0.10
 
 dev_dependencies:
   flutter_test:

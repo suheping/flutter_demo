@@ -9,10 +9,12 @@ import 'package:flutter_demo/pages/video_player_page.dart';
 import 'package:flutter_demo/pages/drag_demo_page.dart';
 import 'package:flutter_demo/pages/web_view_page.dart';
 import 'package:flutter_demo/pages/local_auth_page.dart';
-import 'package:flutter_demo/pages/finger_login_page.dart';
+import 'package:flutter_demo/pages/login_page.dart';
 import 'package:flutter_demo/pages/gesture_page.dart';
 import 'package:flutter_demo/pages/set_gesture_page.dart';
 import 'package:flutter_demo/pages/verify_gesture_page.dart';
+import 'package:flutter_demo/pages/dio_page.dart';
+import 'package:flutter_demo/pages/welcome_page.dart';
 import 'package:fluro/fluro.dart';
 
 Handler homeHandler = Handler(
@@ -79,7 +81,7 @@ Handler localAuthHander = Handler(
 
 Handler fingerLoginHander = Handler(
   handlerFunc: (context, parameters) {
-    return FingerLoginPage();
+    return LoginPage();
   },
 );
 
@@ -98,5 +100,17 @@ Handler setGestureHander = Handler(
 Handler verifyGestureHander = Handler(
   handlerFunc: (context, parameters) {
     return VerifyGesturePage();
+  },
+);
+
+Handler dioHander = Handler(
+  handlerFunc: (context, parameters) {
+    return DioPage();
+  },
+);
+
+Handler welcomeHander = Handler(
+  handlerFunc: (context, parameters) {
+    return WelcomePage();
   },
 );
