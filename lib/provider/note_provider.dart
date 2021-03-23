@@ -33,9 +33,15 @@ class NoteProvider with ChangeNotifier {
   }
 
   // 获取分组下的笔记
-  listNoteByGroupId(BuildContext context, String pathName) async {
+  listNoteByGroupId(BuildContext context, String pathName,
+      {String name}) async {
     _noteList = [];
-    Map<String, dynamic> data = {'group_id': _currentGroupId};
+    Map<String, dynamic> data = {};
+    if (name != null) {
+      data = {'group_id': _currentGroupId, "name": name};
+    } else {
+      data = {'group_id': _currentGroupId};
+    }
     await CustomRequest(context, pathName, 'get', data: data).then((value) {
       ListNoteByGroupIdModel listNoteByGroupIdModel =
           ListNoteByGroupIdModel.fromJson(value);
@@ -68,6 +74,19 @@ class NoteProvider with ChangeNotifier {
   // 添加分组
   addGroup(BuildContext context, String pathName, String name) async {
     Map<String, dynamic> data = {"name": name, "sort_no": null};
+    await CustomRequest(context, pathName, 'post', data: data).then((value) {
+      print(value);
+    });
+  }
+
+  // 添加笔记
+  addNote(BuildContext context, String pathName, String name) async {
+    Map<String, dynamic> data = {
+      "name": name,
+      "group_id": _currentGroupId,
+      "sort_no": null,
+      "content": null
+    };
     await CustomRequest(context, pathName, 'post', data: data).then((value) {
       print(value);
     });
