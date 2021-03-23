@@ -2,6 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/provider/counter_provider.dart';
 import 'package:flutter_demo/provider/file_provider.dart';
+import 'package:flutter_demo/provider/note_provider.dart';
 import 'package:flutter_demo/provider/refresh_provider.dart';
 import 'package:flutter_demo/provider/sdf_provider.dart';
 import 'package:flutter_demo/provider/camera_provider.dart';
@@ -183,7 +184,15 @@ class HomePage extends StatelessWidget {
               },
               child: Text('Dio'),
             ),
-            Divider()
+            Divider(),
+            RaisedButton(
+              onPressed: () async {
+                await Provider.of<NoteProvider>(context, listen: false)
+                    .listGroup(context, 'group');
+                Application.router.navigateTo(context, '/yunNoteGroup');
+              },
+              child: Text('云笔记'),
+            )
           ],
         ),
       ),

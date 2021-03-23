@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:local_auth/auth_strings.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:flutter_demo/provider/sdf_provider.dart';
@@ -69,9 +70,12 @@ class _LocalAuthPageState extends State<LocalAuthPage> {
                             useErrorDialogs: false,
                             stickyAuth: true,
                             androidAuthStrings: andStrings);
-                    print(didAuthenticate);
+                    print('didAuthenticate: $didAuthenticate');
                   } catch (e) {
-                    print(e);
+                    if (e.code == 'NotEnrolled') {
+                      Fluttertoast.showToast(
+                          msg: '请先设置指纹', backgroundColor: Colors.grey);
+                    }
                   }
                 },
                 child: Text('指纹识别'),

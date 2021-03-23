@@ -1,4 +1,5 @@
 import 'package:fluro/fluro.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_demo/routers/handler.dart';
 
 class Routers {
@@ -20,6 +21,8 @@ class Routers {
   static String setGesturePage = '/setGesture';
   static String verifyGesturePage = '/verifyGesture';
   static String dioPage = '/dio';
+  static String yunNoteGroupPage = '/yunNoteGroup';
+  static String yunNotePage = '/yunNote';
 
   static void configureRouters(FluroRouter router) {
     router.notFoundHandler = new Handler(
@@ -46,5 +49,31 @@ class Routers {
     router.define(verifyGesturePage, handler: verifyGestureHander);
     router.define(dioPage, handler: dioHander);
     router.define(welcomePage, handler: welcomeHander);
+    router.define(yunNoteGroupPage, handler: yunNoteGroupHandler);
+    router.define(yunNotePage, handler: yunNoteHandler);
+  }
+
+  // 对参数进行encode，解决参数中有特殊字符，影响fluro路由匹配
+  static Future navigateTo(BuildContext context, String path,
+      {Map<String, dynamic> params,
+      TransitionType transition = TransitionType.native}) {
+    String query = "";
+    if (params != null) {
+      int index = 0;
+      for (var key in params.keys) {
+        var value = Uri.encodeComponent(params[key]);
+        if (index == 0) {
+          query = "?";
+        } else {
+          query = query + "\&";
+        }
+        query += "$key=$value";
+        index++;
+      }
+    }
+    print('我是navigateTo传递的参数：$query');
+
+    path = path + query;
+    return router.navigateTo(context, path, transition: transition);
   }
 }

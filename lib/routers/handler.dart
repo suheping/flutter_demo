@@ -16,6 +16,8 @@ import 'package:flutter_demo/pages/verify_gesture_page.dart';
 import 'package:flutter_demo/pages/dio_page.dart';
 import 'package:flutter_demo/pages/welcome_page.dart';
 import 'package:fluro/fluro.dart';
+import 'package:flutter_demo/pages/yun_note_pages/yun_note_group_page.dart';
+import 'package:flutter_demo/pages/yun_note_pages/yun_note_page.dart';
 
 Handler homeHandler = Handler(
   handlerFunc: (context, parameters) {
@@ -112,5 +114,17 @@ Handler dioHander = Handler(
 Handler welcomeHander = Handler(
   handlerFunc: (context, parameters) {
     return WelcomePage();
+  },
+);
+
+Handler yunNoteGroupHandler = Handler(
+  handlerFunc: (context, parameters) {
+    return YunNoteGroupPage();
+  },
+);
+
+Handler yunNoteHandler = Handler(
+  handlerFunc: (context, parameters) {
+    return YunNotePage();
   },
 );

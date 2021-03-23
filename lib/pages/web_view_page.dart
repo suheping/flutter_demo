@@ -15,7 +15,9 @@ class _WebViewPageState extends State<WebViewPage> {
   @override
   void initState() {
     super.initState();
-    _url = Provider.of<WebViewProvider>(context, listen: false).getUrl;
+    // _url = Provider.of<WebViewProvider>(context, listen: false).getUrl;
+    // _url =
+    "http://192.168.2.58:8080/#/login";
   }
 
   @override
@@ -31,6 +33,7 @@ class _WebViewPageState extends State<WebViewPage> {
               // postMessage 是固定写法
               name: 'GMJSHandler',
               onMessageReceived: (JavascriptMessage message) {
+                // 此处编写具体的处理
                 print(message.message);
                 Application.router.pop(context);
               }),

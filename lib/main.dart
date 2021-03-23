@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_demo/pages/login_page.dart';
+import 'package:flutter_demo/provider/note_provider.dart';
 import 'package:flutter_demo/pages/welcome_page.dart';
 import 'package:flutter_demo/provider/file_provider.dart';
 import 'package:flutter_demo/provider/web_view_provider.dart';
 import 'package:flutter_demo/routers/application.dart';
 import 'package:flutter_demo/routers/routers.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_demo/provider/counter_provider.dart';
 import 'package:flutter_demo/provider/sdf_provider.dart';
@@ -34,6 +35,9 @@ void main() {
       ),
       ChangeNotifierProvider(
         create: (context) => WebViewProvider(),
+      ),
+      ChangeNotifierProvider(
+        create: (context) => NoteProvider(),
       )
     ],
     child: MyApp(),
@@ -130,6 +134,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Application.router.generator,
       home: WelcomePage(),
+      builder: EasyLoading.init(),
     );
   }
 }
